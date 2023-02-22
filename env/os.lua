@@ -1,7 +1,4 @@
--- Inspired by:
-
--- https://github.com/KevinSilvester/wezterm-config/blob/master/utils/
--- get_os_name.lua
+-- Inspired by: https://bit.ly/3Y7sE3v
 
 local M = {}
 
