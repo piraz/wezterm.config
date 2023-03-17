@@ -5,10 +5,11 @@ local env_os = require("env.os")
 
 local font_size = 14
 if env_os.is_mac() then
-    font_size = 16
+    font_size = 18
 end
 
 return {
+    audible_bell = "Disabled",
     font = wezterm.font "JetBrains Mono NL",
     font_size = font_size,
     color_scheme = color.schemes.solar_flare_base16,
