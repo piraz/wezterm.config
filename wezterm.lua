@@ -3,7 +3,7 @@ local act = wezterm.action
 local color = require("config.color")
 local env_os = require("env.os")
 
-local font_size = 16
+local font_size = 14
 if env_os.is_mac() then
     font_size = 19
 end
@@ -31,4 +31,3 @@ return {
         { key = "]", mods = "ALT", action = act.ActivateTabRelative(1) },
     },
 }
-
