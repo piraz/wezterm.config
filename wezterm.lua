@@ -29,5 +29,7 @@ return {
         -- Compare this with the older syntax shown in the section below
         { key = "[", mods = "ALT", action = act.ActivateTabRelative(-1) },
         { key = "]", mods = "ALT", action = act.ActivateTabRelative(1) },
+        { key = "{", mods = "SHIFT|ALT", action = act.MoveTabRelative(-1) },
+        { key = "}", mods = "SHIFT|ALT", action = act.MoveTabRelative(1) },
     },
 }
