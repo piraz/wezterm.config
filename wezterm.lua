@@ -13,6 +13,7 @@ return {
     font = wezterm.font "JetBrains Mono NL",
     font_size = font_size,
     color_scheme = color.schemes.solar_flare_base16,
+    hide_tab_bar_if_only_one_tab = true,
     window_background_opacity = 0.90,
     keys = {
         { key = "1", mods = "ALT", action = act.ActivateTab(0) },
