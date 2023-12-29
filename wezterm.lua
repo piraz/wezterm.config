@@ -10,11 +10,13 @@ end
 
 return {
     audible_bell = "Disabled",
+    enable_scroll_bar = true,
     font = wezterm.font "JetBrains Mono NL",
     font_size = font_size,
     color_scheme = color.schemes.solar_flare_base16,
     hide_tab_bar_if_only_one_tab = true,
     window_background_opacity = 0.90,
+    scrollback_lines = 7000,
     keys = {
         { key = "1", mods = "ALT", action = act.ActivateTab(0) },
         { key = "2", mods = "ALT", action = act.ActivateTab(1) },
@@ -32,5 +34,7 @@ return {
         { key = "]", mods = "ALT", action = act.ActivateTabRelative(1) },
         { key = "{", mods = "SHIFT|ALT", action = act.MoveTabRelative(-1) },
         { key = "}", mods = "SHIFT|ALT", action = act.MoveTabRelative(1) },
+
+        { key = "n", mods = "SHIFT|ALT", action = act.ToggleFullScreen },
     },
 }
