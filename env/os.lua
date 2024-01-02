@@ -80,4 +80,9 @@ function M.is_mac()
     return os_name == "Darwin"
 end
 
+function M.is_windows()
+    local os_name = M.get_name()
+    return os_name == "Windows"
+end
+
 return M
