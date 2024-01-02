@@ -24,7 +24,7 @@ if env_os.is_mac() then
     font_size = 19
 end
 
-return {
+local config = {
     audible_bell = "Disabled",
     enable_scroll_bar = true,
     font = wezterm.font "JetBrains Mono",
@@ -56,3 +56,10 @@ return {
         { key = "n", mods = "SHIFT|ALT", action = act.ToggleFullScreen },
     },
 }
+
+-- See: https://github.com/HeyItsGilbert/dotfiles/blob/main/.wezterm.lua
+if env_os.is_windows() then
+    config.default_prog = { 'pwsh.exe', '-NoLogo' }
+end
+
+return config
