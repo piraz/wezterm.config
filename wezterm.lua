@@ -60,6 +60,7 @@ local config = {
 -- See: https://github.com/HeyItsGilbert/dotfiles/blob/main/.wezterm.lua
 if env_os.is_windows() then
     config.default_prog = { 'pwsh.exe', '-NoLogo' }
+    config.color_scheme = color.schemes.andromeda
 end
 
 return config
