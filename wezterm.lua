@@ -21,7 +21,7 @@ local env_os = require("env.os")
 
 local font_size = 13
 if env_os.is_mac() then
-    font_size = 18
+    font_size = 19
 end
 
 local config = {
