@@ -55,6 +55,12 @@ local config = {
 
         { key = "n", mods = "SHIFT|ALT", action = act.ToggleFullScreen },
     },
+    window_padding = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0,
+    },
 }
 
 -- See: https://github.com/HeyItsGilbert/dotfiles/blob/main/.wezterm.lua
