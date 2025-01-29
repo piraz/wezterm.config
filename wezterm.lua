@@ -19,9 +19,9 @@ local act = wezterm.action
 local color = require("config.color")
 local env_os = require("env.os")
 
-local font_size = 14
+local font_size = 15
 if env_os.is_mac() then
-    font_size = 19
+    font_size = 20
 end
 
 local config = {
