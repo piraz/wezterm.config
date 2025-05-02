@@ -26,7 +26,7 @@ end
 
 local config = {
     audible_bell = "Disabled",
-    enable_scroll_bar = true,
+    enable_scroll_bar = false,
     font = wezterm.font "JetBrains Mono",
     harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
     font_size = font_size,
@@ -34,6 +34,7 @@ local config = {
     color_scheme = color.schemes.abernathy,
     -- color_scheme = color.schemes.solar_flare_base16,
     hide_tab_bar_if_only_one_tab = true,
+    window_decorations = "NONE",
     window_background_opacity = 0.90,
     scrollback_lines = 7000,
     keys = {
@@ -56,10 +57,16 @@ local config = {
 
         { key = "n", mods = "SHIFT|ALT", action = act.ToggleFullScreen },
     },
+    window_frame = {
+        border_left_width = '0cell',
+        border_right_width = '0cell',
+        border_bottom_height = '0cell',
+        border_top_height = '0cell',
+    },
     window_padding = {
         left = 5,
-        right = 5,
-        top = 5,
+        right = 4,
+        top = 3,
         bottom = 0,
     },
 }
