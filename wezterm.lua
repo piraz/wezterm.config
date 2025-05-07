@@ -24,51 +24,53 @@ if env_os.is_mac() then
     font_size = 20
 end
 
-local config = {
-    audible_bell = "Disabled",
-    enable_scroll_bar = false,
-    font = wezterm.font "JetBrains Mono",
-    harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
-    font_size = font_size,
-    front_end = front_end,
-    color_scheme = color.schemes.abernathy,
-    -- color_scheme = color.schemes.solar_flare_base16,
-    hide_tab_bar_if_only_one_tab = true,
-    window_decorations = "NONE",
-    window_background_opacity = 0.90,
-    scrollback_lines = 7000,
-    keys = {
-        { key = "1", mods = "ALT", action = act.ActivateTab(0) },
-        { key = "2", mods = "ALT", action = act.ActivateTab(1) },
-        { key = "3", mods = "ALT", action = act.ActivateTab(2) },
-        { key = "4", mods = "ALT", action = act.ActivateTab(3) },
-        { key = "5", mods = "ALT", action = act.ActivateTab(4) },
-        { key = "6", mods = "ALT", action = act.ActivateTab(5) },
-        { key = "7", mods = "ALT", action = act.ActivateTab(6) },
-        { key = "8", mods = "ALT", action = act.ActivateTab(7) },
-        { key = "9", mods = "ALT", action = act.ActivateTab(8) },
-        { key = "0", mods = "ALT", action = act.ActivateTab(9) },
+local config = wezterm.config_builder()
 
-        -- Compare this with the older syntax shown in the section below
-        { key = "[", mods = "ALT", action = act.ActivateTabRelative(-1) },
-        { key = "]", mods = "ALT", action = act.ActivateTabRelative(1) },
-        { key = "{", mods = "SHIFT|ALT", action = act.MoveTabRelative(-1) },
-        { key = "}", mods = "SHIFT|ALT", action = act.MoveTabRelative(1) },
+config.audible_bell = "Disabled"
+config.enable_scroll_bar = false
+config.font = wezterm.font "JetBrains Mono"
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+config.font_size = font_size
+config.front_end = front_end
+config.color_scheme = color.schemes.abernathy
+-- config.color_scheme = color.schemes.solar_flare_base16
+config.hide_tab_bar_if_only_one_tab = true
+if not env_os.is_mac() then
+    config.window_decorations = "NONE"
+end
+config.window_background_opacity = 0.90
+config.scrollback_lines = 7000
+config.keys = {
+    { key = "1", mods = "ALT", action = act.ActivateTab(0) },
+    { key = "2", mods = "ALT", action = act.ActivateTab(1) },
+    { key = "3", mods = "ALT", action = act.ActivateTab(2) },
+    { key = "4", mods = "ALT", action = act.ActivateTab(3) },
+    { key = "5", mods = "ALT", action = act.ActivateTab(4) },
+    { key = "6", mods = "ALT", action = act.ActivateTab(5) },
+    { key = "7", mods = "ALT", action = act.ActivateTab(6) },
+    { key = "8", mods = "ALT", action = act.ActivateTab(7) },
+    { key = "9", mods = "ALT", action = act.ActivateTab(8) },
+    { key = "0", mods = "ALT", action = act.ActivateTab(9) },
 
-        { key = "n", mods = "SHIFT|ALT", action = act.ToggleFullScreen },
-    },
-    window_frame = {
-        border_left_width = '0cell',
-        border_right_width = '0cell',
-        border_bottom_height = '0cell',
-        border_top_height = '0cell',
-    },
-    window_padding = {
-        left = 5,
-        right = 4,
-        top = 3,
-        bottom = 0,
-    },
+    -- Compare this with the older syntax shown in the section below
+    { key = "[", mods = "ALT", action = act.ActivateTabRelative(-1) },
+    { key = "]", mods = "ALT", action = act.ActivateTabRelative(1) },
+    { key = "{", mods = "SHIFT|ALT", action = act.MoveTabRelative(-1) },
+    { key = "}", mods = "SHIFT|ALT", action = act.MoveTabRelative(1) },
+
+    { key = "n", mods = "SHIFT|ALT", action = act.ToggleFullScreen },
+}
+config.window_frame = {
+    border_left_width = '0cell',
+    border_right_width = '0cell',
+    border_bottom_height = '0cell',
+    border_top_height = '0cell',
+}
+config.window_padding = {
+    left = 5,
+    right = 4,
+    top = 3,
+    bottom = 0,
 }
 
 -- See: https://github.com/HeyItsGilbert/dotfiles/blob/main/.wezterm.lua
