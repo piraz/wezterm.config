@@ -8,16 +8,13 @@ local conf_file = os.getenv("WEZTERM_CONFIG_FILE")
 local front_end = os.getenv("WEZTERM_FRONT_END") or "WebGpu"
 
 if conf_file then
-    local dir_sep = "/"
-    local var_sep = ":"
-    if conf_file:match("(.*:\\)") then
-        dir_sep = "\\"
-        var_sep = ";"
-    end
+    local dir_sep = is_windows and "\\" or "/"
     local conf_path = conf_file:match("(.*" .. dir_sep .. ")")
-    package.path = package.path .. var_sep .. conf_path .. "?" .. dir_sep ..
-        "init.lua"
-    package.path = package.path .. var_sep .. conf_path .. "?.lua" .. var_sep
+    package.path = table.concat({
+        package.path,
+        conf_path .. "?" .. dir_sep .. "init.lua",
+        conf_path .. "?.lua",
+    })
 end
 
 local act = wezterm.action
