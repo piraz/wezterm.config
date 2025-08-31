@@ -1,3 +1,9 @@
+local wezterm = require("wezterm")
+
+local is_linux = string.find(wezterm.target_triple, "linux")
+local is_mac = string.find(wezterm.target_triple, "darwin")
+local is_windows = string.find(wezterm.target_triple, "windows")
+
 local conf_file = os.getenv("WEZTERM_CONFIG_FILE")
 local front_end = os.getenv("WEZTERM_FRONT_END") or "WebGpu"
 
@@ -14,13 +20,11 @@ if conf_file then
     package.path = package.path .. var_sep .. conf_path .. "?.lua" .. var_sep
 end
 
-local wezterm = require("wezterm")
 local act = wezterm.action
 local color = require("config.color")
-local env_os = require("env.os")
 
 local font_size = 16
-if env_os.is_mac() then
+if is_mac then
     font_size = 20
 end
 
@@ -35,7 +39,7 @@ config.front_end = front_end
 config.color_scheme = color.schemes.abernathy
 -- config.color_scheme = color.schemes.solar_flare_base16
 config.hide_tab_bar_if_only_one_tab = true
-if not env_os.is_mac() then
+if is_linux then
     config.window_decorations = "NONE"
 end
 config.window_background_opacity = 0.90
@@ -73,8 +77,7 @@ config.window_padding = {
     bottom = 0,
 }
 
--- See: https://github.com/HeyItsGilbert/dotfiles/blob/main/.wezterm.lua
-if env_os.is_windows() then
+if is_windows then
     config.default_prog = { 'pwsh.exe', '-NoLogo' }
     config.color_scheme = color.schemes.andromeda
 end
