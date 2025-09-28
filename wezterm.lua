@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local config = wezterm.config_builder()
 
 local is_linux = string.find(wezterm.target_triple, "linux")
 local is_mac = string.find(wezterm.target_triple, "darwin")
@@ -25,7 +26,6 @@ if is_mac then
     font_size = 20
 end
 
-local config = wezterm.config_builder()
 
 config.audible_bell = "Disabled"
 config.enable_scroll_bar = false
